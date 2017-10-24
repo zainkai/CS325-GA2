@@ -1,14 +1,16 @@
 import math 
 
 def vankins(superList):
+  #keeps track of the max score.
   maxScore = 0
+  #keeps track of the scores for each column of possible scores.
   VMile = []
   n = len(superList)
-  #Need n + 1 x n+1 size array as we will be
-  #looking at elements bigger than n x n
   down = 0
+  #Initializing the array.
   for i in range(0, n):
     VMile.append(0)
+  #Loop through every column on the game board.
   for j in range(n, 0, -1):
     down = 0
     for i in range(n, 0, -1):
