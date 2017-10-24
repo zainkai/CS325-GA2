@@ -6,16 +6,15 @@ def vankins(superList):
   n = len(superList)
   #Need n + 1 x n+1 size array as we will be
   #looking at elements bigger than n x n
-  for i in range(0, n + 1):
-    VMile.append([])
-    for j in range(0, n + 1):
-      VMile[i].append(0)
+  down = 0
+  for i in range(0, n):
+    VMile.append(0)
   for j in range(n, 0, -1):
-    VMile[i-1][j -1] = 0
+    down = 0
     for i in range(n, 0, -1):
-      VMile[i-1][j-1] = superList[i-1][j-1] + max(VMile[i][j-1], VMile[i -1][j])
-      maxScore = max(maxScore, VMile[i-1][j-1])
-  print(VMile)
+      VMile[i - 1] = superList[i-1][j-1] + max(down, VMile[i - 1])
+      down = VMile[i - 1]
+      maxScore = max(maxScore, down)
   return maxScore
 
 
