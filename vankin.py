@@ -13,9 +13,14 @@ def vankins(superList):
   #Loop through every column on the game board.
   for j in range(n, 0, -1):
     down = 0
+    #loops through every element in every column.
     for i in range(n, 0, -1):
+      #adds the max possible score for the current cell we are on
+      #either adds the score below the current element or to the right which ever is larger.
       VMile[i - 1] = superList[i-1][j-1] + max(down, VMile[i - 1])
+      #sets down to the current index for comparision later
       down = VMile[i - 1]
+      #takes the larger of the current score or the know max score.
       maxScore = max(maxScore, down)
   return maxScore
 
